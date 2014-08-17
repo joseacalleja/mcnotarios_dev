@@ -1,4 +1,4 @@
-## Laravel/Foundation Auth Starter - V1.0
+## mcnotarios V1.0
 
 This project is a boilerplate that includes a User authentication module.
 Users can create their own accounts, edit their details or login with Facebook credentials.
