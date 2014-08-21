@@ -12,7 +12,7 @@
 		<section class="top-bar-section">
 			@if(!Auth::check())
 			<ul class="right hide-for-small">
-				<li class="{{ (strpos(URL::current(), URL::to('user/register'))!== false) ? 'active' : '' }}">{{ HTML::link('user/register', Lang::get('form.signup')) }}</li>   
+		{{--		<li class="{{ (strpos(URL::current(), URL::to('user/register'))!== false) ? 'active' : '' }}">{{ HTML::link('user/register', Lang::get('form.signup')) }}</li> --}}  
 				<li class="{{ (strpos(URL::current(), URL::to('user/login'))!== false) ? 'active' : '' }}">{{ HTML::link('user/login', Lang::get('form.login')) }}</li>   
 			</ul>
 			@else
@@ -57,7 +57,7 @@
 					<li>{{ HTML::link('user/logout', Lang::get('global.logout')) }}</li>
 					<hr />
 					@else
-					<li class="{{Request::is('user/register') ? 'active' : ''}}">{{ HTML::link('user/register', Lang::get('form.signup')) }}</li>   
+				{{--	<li class="{{Request::is('user/register') ? 'active' : ''}}">{{ HTML::link('user/register', Lang::get('form.signup')) }}</li> --}}  
 					<li class="{{Request::is('user/login') ? 'active' : ''}}">{{ HTML::link('user/login', Lang::get('form.login')) }}</li>   
 					@endif
 					<li>{{ HTML::link('terms', Lang::get('global.termsofuse')) }}</li>

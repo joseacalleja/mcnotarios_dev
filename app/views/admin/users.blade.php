@@ -2,6 +2,7 @@
 <div class="row">
 	<div class="large-12 columns">
 		<h2>{{Lang::get('form.users')}}</h2>
+		{{ HTML::linkAction('UsersController@getRegister',Lang::get('form.account--new'),array(),array('class'=>'button tiny')) }}
 		<table class="datatable">
 			<thead>
 				<tr>

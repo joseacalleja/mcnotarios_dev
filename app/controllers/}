@@ -36,8 +36,7 @@ class UsersController extends \BaseController {
 	 */
 
   	public function __construct(){
-        //*$appname =  Lang::get('global.appname');
-        $this->beforeFilter('auth|auth.admin', 
+        $this->beforeFilter('auth', 
         	array('except' =>  
         		array('getLogin' ,
         		//	'getRegister',
@@ -49,8 +48,9 @@ class UsersController extends \BaseController {
         		)
         	)
         );
+        /*$appname =  Lang::get('global.appname');
         
-        // view::share('appname', $appname);
+        view::share('appname', $appname);*/
     }
 
 
@@ -60,9 +60,9 @@ class UsersController extends \BaseController {
 	
 	 public function getRegister() {
 	 	//si tienen ya una sesion iniciada, no se puede ver el formulario de login
-	 	// if (Auth::check()) {
-	 	// 	return Redirect::to('user/home');
-	 	// }
+	 //	 if (Auth::check()) {
+	 //	 	return Redirect::to('user/home');
+	 //	 }
 	 	 $this->layout->title =  Lang::get('form.signup');
 		 $this->layout->content = View::make('users.register');
 	 }
@@ -194,7 +194,7 @@ class UsersController extends \BaseController {
 			});
 
 			$user->save();
-			return Redirect::to('admin/users')->with('success', Lang::get('form.success--signup'));
+			return Redirect::to('user/login')->with('success', Lang::get('form.success--signup'));
 		} else {
 			return Redirect::to('user/register')->with('alert', Lang::get('form.error--something'))->withErrors($validator)->withInput();
 		}

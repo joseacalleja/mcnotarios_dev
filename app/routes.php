@@ -28,6 +28,7 @@
 
 Route::group(array('before' => 'auth|auth.admin'), function() {
 	Route::controller('admin','AdminController');
+	/*	Route::get('user/new',array('uses' => 'UsersController@getRegister','as' => 'user.new')); */
 	/*Route::get('user/super/edit/',array('uses' => 'UsersController@getEditadmin'));
 	Route::get('user/super/edit/{id}',array('uses' => 'UsersController@getEditadmin'));*/
 });
