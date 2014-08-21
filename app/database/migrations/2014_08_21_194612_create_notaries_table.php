@@ -19,7 +19,7 @@ class CreateNotariesTable extends Migration {
 			$table->increments('id');
 			$table->string('number');
 			$table->string('description');
-			$table->integer('responsible')->unsigned();
+			$table->integer('responsible')->unsigned()->unique();
 			$table->string('cell_phone');
 			$table->string('office_phone');
 			$table->string('email');
