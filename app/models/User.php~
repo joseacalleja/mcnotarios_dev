@@ -5,6 +5,20 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	
+	public function worksAt(){
+		return $this->morphTo();
+	}
+
+	public function notaryResponsible(){
+		return $this->hasOne('Notary');
+	}
+
+	public function areaResponsible(){
+		return $this->hasOne('Area');
+	}
+
+
+
 	public function getRoles(){
 		$roles = array(
 			0 => 'guest',
@@ -20,8 +34,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 			'lastname'=>'alpha_spaces|min:2',
 			'email'=>'required|email|unique:users',
 			'username'=>'required|alpha_dash|unique:users',
-			'password'=>'required|alpha_num|between:5,12|confirmed',
-			'password_confirmation'=>'required|alpha_num|between:6,12'
+			'password'=>'required|alpha_num|between:8,32|confirmed',
+			'password_confirmation'=>'required|alpha_num|between:8,32'
 		);
 	
 	public static $validemail = array('email'=>'required|email|exists:users');

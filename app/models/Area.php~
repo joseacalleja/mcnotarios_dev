@@ -9,7 +9,8 @@ class Area extends Eloquent {
 	}
 
 	public function areaUsers(){
-		return $this->hasMany('User');
+		return $this->morphOne('User', 'workable');
 	}
+
 
 }

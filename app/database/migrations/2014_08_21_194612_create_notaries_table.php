@@ -24,7 +24,7 @@ class CreateNotariesTable extends Migration {
 			$table->string('office_phone');
 			$table->string('email');
 			// unique
-			$table->string('curp')->unique();
+			$table->string('curp');
 			// unique
 			$table->string('rfc')->unique();
 			$table->string('legal_name');

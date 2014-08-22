@@ -5,6 +5,20 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	
+	public function workable(){
+		return $this->morphTo();
+	}
+
+	public function notaryResponsible(){
+		return $this->hasOne('Notary');
+	}
+
+	public function areaResponsible(){
+		return $this->hasOne('Area');
+	}
+
+
+
 	public function getRoles(){
 		$roles = array(
 			0 => 'guest',

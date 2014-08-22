@@ -8,4 +8,8 @@ class Notary extends Eloquent {
 		return $this->belongsTo('User');
 	}
 
+	public function notaryUsers(){
+		return $this->hasMany('User');
+	}
+
 }
