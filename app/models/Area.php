@@ -10,7 +10,7 @@ class Area extends Eloquent {
 
 	public function areaUsers(){
 		// this function workable is in the User object
-		return $this->morphOne('User', 'workable');
+		return $this->morphMany('User', 'workable');
 	}
 
 

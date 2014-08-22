@@ -29,7 +29,10 @@
            
         </ul>
         <hr>
-        
+{{ Form::label('comfirmed', Lang::get('form.confirm--status')) }}
+{{ Form::checkbox( 'confirmed', 1, $user->confirmed)}}
+       <hr> 
+
     <?php 
     $useraccess = "";
     switch ($user->role_id) {
@@ -41,7 +44,7 @@
         
         
         {{Lang::get('form.change--accesslevel')}}<br /><br />
-        <label>This user is currently set to {{$useraccess}}.</label>
+        <label>{{ Lang::get('form.current--accesslevel')}} {{$useraccess}}.</label>
 
         {{Form::select('accesslevel', array('0' => Lang::get('global.permissions--guest'), 
                                         '1' => Lang::get('global.permissions--basic'),

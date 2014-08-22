@@ -252,6 +252,8 @@ class UsersController extends \BaseController {
 			if(Auth::user()->isConfirmed()){
 				if(Auth::user()->hasRole('admin'))
 					return Redirect::to('admin/');
+				//	$workable = Auth::user()->workable;
+				//	genera objeto
 				return Redirect::to('user/');
 			}else{
 				//destruyo la sesión y mando error manual

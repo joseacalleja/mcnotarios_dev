@@ -76,6 +76,7 @@ class AdminController extends \BaseController {
 			$user->email = Input::get('email');
 			$user->firstname = Input::get('firstname');
 			$user->lastname = Input::get('lastname');
+			$user->confirmed = Input::get('confirmed');
 			if(Input::get('password')!= '' )
 				$user->password = Hash::make(Input::get('password'));
 			$user->save();

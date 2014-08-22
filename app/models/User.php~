@@ -5,7 +5,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	
-	public function worksAt(){
+	public function workable(){
 		return $this->morphTo();
 	}
 
