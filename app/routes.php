@@ -17,6 +17,14 @@
 
 */
 
+//Route::get('area/new','AreasController@postNewArea');
+Route::get('area/assign',function(){
+	$user = User::find(2);
+	$area = Area::find(1);
+	$area->areaUsers()->save($user);
+
+});
+
 /**
  * Limite de acceso en Filtros
  * niveles de acceso:

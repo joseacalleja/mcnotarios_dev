@@ -9,7 +9,7 @@ class Notary extends Eloquent {
 	}
 
 	public function notaryUsers(){
-		return $this->morphOne('User', 'workable');
+		return $this->morphMany('User', 'workable');
 	}
 
 }
