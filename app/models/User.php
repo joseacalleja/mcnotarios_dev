@@ -4,7 +4,27 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
+
+	public function scopeGetEmptyUsers($query){
+		$results = DB::select(DB::raw("SELECT u.id, u.firstname, u.lastname 
+										FROM users AS u 
+										WHERE u.workable_id = 0 
+										AND u.id NOT IN (
+											SELECT n.responsible FROM notaries AS n)
+										AND u.id NOT IN(
+											SELECT a.responsible FROM areas AS a)
+								"));
+		if(!empty($results)) {
+			$response = array();
+			foreach ($results as $user) {
+					$response[$user->id] = $user->firstname . " " . $user->lastname;
+			}	
+		}
+		return $response;
+	}
+
 	
+
 	public function workable(){
 		return $this->morphTo();
 	}

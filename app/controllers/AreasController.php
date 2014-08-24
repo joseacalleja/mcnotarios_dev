@@ -13,8 +13,22 @@ class AreasController extends \BaseController {
 	}
 	public function getEdit($area_id = null){
 		if (is_null($area_id)){ return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--emptyedit')); }
-		$userlist = User::lists('firstname', 'id');
+		
 		$area = Area::find($area_id);
+		$userlist = User::getEmptyUsers();
+		// lets get the responsible user object
+		$responsible_user = User::find($area->responsible);
+		// now we need to append it to the userlist, 
+		//$userlistarray = json_decode($userlist, true); //first convert to array
+		//$data = array($responsible_user->id => $responsible_user->firstname . " ". $responsible_user->lastname);
+		//array_push($userlist, $data);
+		$userlist[$responsible_user->id] = $responsible_user->firstname . " ". $responsible_user->lastname;
+		//$userlistarray[$responsible_user->id] = ;
+		//$userlist = json_encode($userlistarray); //convert back to JSON
+		//if($userlist == "{}"){
+		//	return Redirect::to('admin/area')->withAlert(Lang::get('areas.no-empty--users'));
+		//}
+		
 		$this->layout->title= Lang::get('areas.edit--title');
 		$this->layout->content = View::make('admin.areas.edit')->withArea($area)->withUserlist($userlist);
 	
@@ -43,13 +57,20 @@ class AreasController extends \BaseController {
 		$area->email = Input::get('email');
 		$area->ubication = Input::get('ubication');
 		$area->save();
+
+
+		$user = User::find($area->responsible);
+		$area->areaUsers()->save($user);
 		return Redirect::to('admin/area')->withSuccess(Lang::get('areas.success--edit'));
 		}
 		return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--edit'));
 	}
 
 	public function getNew(){
-		$userlist = User::lists('firstname', 'id');
+		$userlist = User::getEmptyUsers();
+		if($userlist == "{}"){
+			return Redirect::to('admin/area')->withAlert(Lang::get('areas.no-empty--users'));
+		}
 		$this->layout->title = Lang::get('areas.new--title');
 		$this->layout->content=View::make('admin.areas.new')->withUserlist($userlist);
 	}
