@@ -34,12 +34,20 @@ Route::get('area/assign',function(){
  * guest() - 0
  */
 
-Route::group(array('before' => 'auth|auth.admin'), function() {
-	Route::controller('admin','AdminController');
+//Route::group(array('before' => 'auth|auth.admin'), function() {
+//	Route::controller('admin','AdminController');
+
 	/*	Route::get('user/new',array('uses' => 'UsersController@getRegister','as' => 'user.new')); */
 	/*Route::get('user/super/edit/',array('uses' => 'UsersController@getEditadmin'));
 	Route::get('user/super/edit/{id}',array('uses' => 'UsersController@getEditadmin'));*/
+//});
+
+
+Route::group(array('prefix'=> 'admin', 'before' => 'auth|auth.admin'), function() {
+	Route::controller('area','AreasController');
+	Route::controller('/','AdminController');
 });
+
 
 /**
  * Aquí empieza todo

@@ -17,25 +17,42 @@
 			</ul>
 			@else
 			<ul class="right hide-for-small">	
-					@if($user->role_id > 2)
+				@if($user->role_id > 2)
 					<li class="{{ (strpos(URL::current(), URL::to('admin/users'))!== false) ? 'active' : '' }}">
-						{{ HTML::link('admin/users', Lang::get('form.users'))}}</li>   
+						<a href="{{URL::to('admin/users')}}">
+							<i class="fa fa-user"></i>
+							{{Lang::get('form.users')}}
+						</a>
+					</li>   
+					<li class="{{ (strpos(URL::current(), URL::to('admin/area'))!== false) ? 'active' : '' }}">
+						<a href="{{URL::to('admin/area')}}">
+							<i class="fa fa-building"></i>
+							{{Lang::get('areas.areas--title')}}
+						</a>
+					</li>
+
+					<li class="{{ (strpos(URL::current(), URL::to('admin/notary'))!== false) ? 'active' : '' }}">
+							<a href="{{URL::to('admin/notary')}}">
+							<i class="fa fa-bank"></i>
+							{{Lang::get('notaries.notaries--title')}}
+						</a>
+					</li>      
+				@endif
+				<li class="has-dropdown">
+					<a href="#">
+						<?php $photourl = !empty($user->photo) ? $user->photo: Config::get('configuration.picture--default');?>
+						{{HTML::image($photourl, Lang::get('global.profilepic'), array('class' => 'photo--thumbnail left hide-for-small'))}}
+						{{$user->firstname}}
+					</a>
+					<ul class="dropdown">
+						@if($user->role_id > 2)
+							<li>{{ HTML::link('admin', Lang::get('global.admin')) }}</li> 
 						@endif
-						<li class="has-dropdown">
-							<a href="#">
-								<?php $photourl = !empty($user->photo) ? $user->photo: Config::get('configuration.picture--default');?>
-								{{HTML::image($photourl, Lang::get('global.profilepic'), array('class' => 'photo--thumbnail left hide-for-small'))}}
-								{{$user->firstname}}
-							</a>
-							<ul class="dropdown">
-								@if($user->role_id > 2)
-								<li>{{ HTML::link('admin', Lang::get('global.admin')) }}</li> 
-								@endif
-								<li>{{ HTML::link('user/edit', Lang::get('global.editinfo')) }}</li>
-								<li>{{ HTML::link('user/logout', Lang::get('global.logout')) }}</li>
-							</ul>
-						</li>
+						<li>{{ HTML::link('user/edit', Lang::get('global.editinfo')) }}</li>
+						<li>{{ HTML::link('user/logout', Lang::get('global.logout')) }}</li>
 					</ul>
+				</li>
+			</ul>
 
 					@endif			
 				</section>

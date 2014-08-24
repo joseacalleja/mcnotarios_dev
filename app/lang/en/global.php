@@ -29,5 +29,6 @@ return array(
 	"permissions--basic" => "Basic",
 	"permissions--medium" => "Medium",
 	"permissions--admin" => "Administrator",
-	"admin" => "Admin"
+	"admin" => "Admin",
+	"home" => "Home"
 );

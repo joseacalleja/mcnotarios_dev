@@ -274,8 +274,13 @@ class UsersController extends \BaseController {
 	 * Sets the layout content with the login view. 
 	 */
 	public function getHome() {
+		if (!Auth::check()) {
+			return Redirect::to('user/login');
+		}
+		$this->layout->title = Lang::get('global.home');
 		$this->layout->content = View::make('users.home');
 	}
+
 	/**
 	 * Logouts user
 	 */
