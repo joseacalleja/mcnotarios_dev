@@ -44,6 +44,7 @@ Route::get('area/assign',function(){
 
 
 Route::group(array('prefix'=> 'admin', 'before' => 'auth|auth.admin'), function() {
+	Route::controller('notary','NotariesController');	
 	Route::controller('area','AreasController');
 	Route::controller('/','AdminController');
 });

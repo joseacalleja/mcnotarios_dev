@@ -12,13 +12,14 @@ return array(
 	"ubication" => "Ubicacion",
 	"button--new" => "Crear Areas",
 	"new--title" => "Agregar nueva Area",
-	"add--agree" => "Aceptar Agregar",
+	"add--agree" => "Aceptar Agregar Area",
 	"areas--none" => "Areas Vacio",
-	"error--edit" => "Error en Modification",
+	"error--edit" => "Error en Modification Area",
 	"error--add" => "Error en Alta",
-	"edit--agree" => "Aceptar Modificacion",
-	"error--emptyedit" => "Modificacion Vacia",
-	"success--edit" => "Modificacion Exitosa",
+	"edit--title" => "Modificacion Area",
+	"edit--agree" => "Aceptar Modificacion Area",
+	"error--emptyedit" => "Modificacion Area Vacia",
+	"success--edit" => "Modificacion Area Exitosa",
 	"success--add" => "Alta Exitosa"
 
 );

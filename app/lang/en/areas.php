@@ -12,13 +12,14 @@ return array(
 	"ubication" => "Ubication",
 	"button--new" => "Add Areas",
 	"new--title" => "Add new Area",
-	"add--agree" => "Add Agree",
+	"add--agree" => "Add Agree Area",
 	"areas--none" => "Empty Areas",
-	"error--edit" => "Modification Error",
+	"error--edit" => "Modification Error Area",
 	"error--add" => "Add Error",
-	"edit--agree" => "Modification Agree",
-	"error--emptyedit" => "Modification Empty",
-	"success--edit" => "Modification Ok", 
+	"edit--title" => "Edit Area",
+	"edit--agree" => "Modification Agree Area",
+	"error--emptyedit" => "Area Modification Empty",
+	"success--edit" => "Area Modification Ok", 
 	"success--add" => "Add Ok"
 
 );
