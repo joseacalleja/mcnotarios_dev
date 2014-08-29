@@ -25,7 +25,7 @@
 			<small class="error">{{Lang::get('form.error--email')}}</small>
 		</div>
 		<div class="password-field">
-			{{ Form::password('password', array('class'=>'', 'placeholder'=>Lang::get('form.password').'*', 'required' =>'required', 'id'=>'password', 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{4,8}$')) }}
+			{{ Form::password('password', array('class'=>'', 'placeholder'=>Lang::get('form.password').'*', 'required' =>'required', 'id'=>'password', 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{8,32}$')) }}
 			<small class="error">{{Lang::get('form.error--password')}}</small>
 		</div>
 		<div class="password_confirmation-field">

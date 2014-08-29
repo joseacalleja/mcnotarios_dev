@@ -29,7 +29,7 @@
  					<th>{{Lang::get('notaries.city')}}</th>
  					<th>{{Lang::get('notaries.state')}}</th>
  					<th>{{Lang::get('notaries.country')}}</th>
-					<th>{{Lang::get('notaries.zipcode')}}</th>
+					<th>{{Lang::get('notaries.zip_code')}}</th>
 					<th>{{Lang::get('form.edit')}}</th>
 				</tr>
 			</thead>
@@ -54,7 +54,7 @@
 					<td>{{$notary->city}}</td>
 					<td>{{$notary->state}}</td>
 					<td>{{$notary->country}}</td>
-					<td>{{$notary->zipcode}}</td>
+					<td>{{$notary->zip_code}}</td>
 					<td>{{HTML::Link('admin/notary/edit/'.$notary->id, Lang::get('form.edit'), array('class'=> 'button tiny message'))}}</td>
 				</tr>
 				@endforeach

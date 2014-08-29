@@ -12,6 +12,7 @@ return array(
 	"ubication" => "Ubicacion",
 	"button--new" => "Crear Areas",
 	"new--title" => "Agregar nueva Area",
+	"no-empty--users" => "No hay usuarios disponibles",	
 	"add--agree" => "Aceptar Agregar Area",
 	"areas--none" => "Areas Vacio",
 	"error--edit" => "Error en Modification Area",

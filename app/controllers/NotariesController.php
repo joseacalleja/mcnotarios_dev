@@ -30,7 +30,7 @@ class NotariesController extends \BaseController {
 		//}
 		
 		$this->layout->title= Lang::get('notaries.edit--title');
-		$this->layout->content = View::make('admin.notaries.edit')->withNotary($notaries)->withUserlist($userlist);
+		$this->layout->content = View::make('admin.notaries.edit')->withNotary($notary)->withUserlist($userlist);
 	
 	}
 
@@ -57,7 +57,7 @@ class NotariesController extends \BaseController {
 			'city' => 'required',
 			'state' => 'required',
 			'country' => 'required',
-			'zipcode' => 'required'
+			'zip_code' => 'required'
 
 		));
 		if ($validation->passes()){
@@ -81,7 +81,7 @@ class NotariesController extends \BaseController {
 		$notary->city = Input::get('city');
 		$notary->state = Input::get('state');
 		$notary->country = Input::get('country');
-		$notary->zipcode = Input::get('zipcode');
+		$notary->zip_code = Input::get('zip_code');
 		$notary->save();
 
 
@@ -95,10 +95,10 @@ class NotariesController extends \BaseController {
 	public function getNew(){
 		$userlist = User::getEmptyUsers();
 		if($userlist == "{}"){
-			return Redirect::to('admin/area')->withAlert(Lang::get('areas.no-empty--users'));
+			return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.no-empty--users'));
 		}
-		$this->layout->title = Lang::get('areas.new--title');
-		$this->layout->content=View::make('admin.areas.new')->withUserlist($userlist);
+		$this->layout->title = Lang::get('notaries.new--title');
+		$this->layout->content=View::make('admin.notaries.new')->withUserlist($userlist);
 	}
 	public function postNew(){
 		$input = Input::all();
@@ -122,7 +122,7 @@ class NotariesController extends \BaseController {
 			'city' => 'required',
 			'state' => 'required',
 			'country' => 'required',
-			'zipcode' => 'required'
+			'zip_code' => 'required'
 
 		));
 		if ($validation->passes()){
@@ -146,7 +146,7 @@ class NotariesController extends \BaseController {
 		$notary->city = Input::get('city');
 		$notary->state = Input::get('state');
 		$notary->country = Input::get('country');
-		$notary->zipcode = Input::get('zipcode');
+		$notary->zip_code = Input::get('zip_code');
 		$notary->save();
 		return Redirect::to('admin/notary')->withSuccess(Lang::get('notaries.success--add'));
 		}

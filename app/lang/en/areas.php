@@ -12,6 +12,7 @@ return array(
 	"ubication" => "Ubication",
 	"button--new" => "Add Areas",
 	"new--title" => "Add new Area",
+	"no-empty--users" => "No Empty Users",
 	"add--agree" => "Add Agree Area",
 	"areas--none" => "Empty Areas",
 	"error--edit" => "Modification Error Area",

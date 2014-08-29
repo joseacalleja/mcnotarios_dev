@@ -6,7 +6,7 @@
 	{{ Form::open(array('url'=>'admin/notary/edit/'.$notary->id, 'class'=>'form-signin','data-abide'=>'')) }}
 	<div class="number-field">
 		{{ Form::label('number', Lang::get('notaries.number').':') }}
-		{{ Form::text('number',$notary->number, array('required' => 'required', 'placeholder'=> Lang::get('notaries.number'))) }}
+		{{ Form::text('number',$notary->number, array('required' => 'required', 'placeholder'=> Lang::get('notaries.number') )) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	<div class="description-field">
@@ -36,12 +36,12 @@
 	</div>
 	<div class="curp-field">
 		{{ Form::label('curp', Lang::get('notaries.curp').':') }}
-		{{ Form::text('curp',$notary->curp, array('required' => 'required', 'placeholder'=> Lang::get('notaries.curp'))) }}
+		{{ Form::text('curp',$notary->curp, array('required' => 'required', 'placeholder'=> Lang::get('notaries.curp'), 'pattern' => '[A-Z][AEIOUX][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][MH][A-Z][BCDFGHJKLMNÑPQRSTVWXYZ]{4}[0-9A-Z][0-9]')) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
-	<div class="rfc x-field">
+	<div class="rfc-field">
 		{{ Form::label('rfc', Lang::get('notaries.rfc').':') }}
-		{{ Form::text('rfc',$notary->rfc, array('required' => 'required', 'placeholder'=> Lang::get('notaries.rfc'))) }}
+		{{ Form::text('rfc',$notary->rfc, array('required' => 'required', 'placeholder'=> Lang::get('notaries.rfc'), 'pattern'=> '[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9]([A-Z0-9]{3})' )) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	<div class="legal_name-field">
@@ -90,9 +90,9 @@
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 
-	<div class="zipcode-field">
-		{{ Form::label('zipcode', Lang::get('notaries.zipcode').':') }}
-		{{ Form::text('zipcode',$notary->zipcode, array('required' => 'required', 'placeholder'=> Lang::get('notaries.zipcode'))) }}
+	<div class="zip_code-field">
+		{{ Form::label('zip_code', Lang::get('notaries.zip_code').':') }}
+		{{ Form::text('zip_code',$notary->zip_code, array('required' => 'required', 'placeholder'=> Lang::get('notaries.zip_code'))) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 

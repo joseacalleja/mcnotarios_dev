@@ -37,12 +37,12 @@
 	</div>
 	<div class="curp-field">
 		{{ Form::label('curp', Lang::get('notaries.curp').':') }}
-		{{ Form::text('curp','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.curp'))) }}
+		{{ Form::text('curp','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.curp'), 'pattern' => '[A-Z][AEIOUX][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][MH][A-Z][BCDFGHJKLMNÑPQRSTVWXYZ]{4}[0-9A-Z][0-9]')) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	<div class="rfc-field">
 		{{ Form::label('rfc', Lang::get('notaries.rfc').':') }}
-		{{ Form::text('rfc','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.rfc'))) }}
+		{{ Form::text('rfc','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.rfc'), 'pattern'=> '[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9]([A-Z0-9]{3})' )) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	<div class="legal_name-field">
@@ -91,9 +91,9 @@
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 
-	<div class="zipcode-field">
-		{{ Form::label('zipcode', Lang::get('notaries.zipcode').':') }}
-		{{ Form::text('zipcode','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.zipcode'))) }}
+	<div class="zip_code-field">
+		{{ Form::label('zip_code', Lang::get('notaries.zip_code').':') }}
+		{{ Form::text('zip_code','', array('required' => 'required', 'placeholder'=> Lang::get('notaries.zip_code'))) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	{{ Form::submit(Lang::get('notaries.add--agree'),array('class' => 'button small')) }}
