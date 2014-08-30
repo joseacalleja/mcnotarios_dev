@@ -6,7 +6,7 @@
 	{{ Form::open(array('url'=>'admin/notary/edit/'.$notary->id, 'class'=>'form-signin','data-abide'=>'')) }}
 	<div class="number-field">
 		{{ Form::label('number', Lang::get('notaries.number').':') }}
-		{{ Form::text('number',$notary->number, array('required' => 'required', 'placeholder'=> Lang::get('notaries.number') )) }}
+		{{ Form::text('number',$notary->number, array('required' => 'required', 'placeholder'=> Lang::get('notaries.number'),'maxlength' => '10' )) }}
 	<small class="error">{{Lang::get('form.error--empty')}}</small>
 	</div>
 	<div class="description-field">
