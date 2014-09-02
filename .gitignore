@@ -7,3 +7,6 @@ composer.lock
 .DS_Store
 Thumbs.db
 app/config/database.php
+app/config/facebook.php
+app/config/services.php
+app/database/seeds/UserTableSeeder.php
