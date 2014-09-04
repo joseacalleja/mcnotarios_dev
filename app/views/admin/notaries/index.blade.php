@@ -11,6 +11,7 @@
 		<table class="datatable">
 			<thead>
 				<tr>
+					<th>{{Lang::get('form.actions')}}</th>					
  					<th>{{Lang::get('notaries.id')}}</th>
  					<th>{{Lang::get('notaries.number')}}</th>
  					<th>{{Lang::get('notaries.description')}}</th>
@@ -30,12 +31,12 @@
  					<th>{{Lang::get('notaries.state')}}</th>
  					<th>{{Lang::get('notaries.country')}}</th>
 					<th>{{Lang::get('notaries.zip_code')}}</th>
-					<th>{{Lang::get('form.edit')}}</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($notaries as $notary)
 				<tr>
+					<td>{{HTML::Link('admin/notary/edit/'.$notary->id, Lang::get('form.edit'), array('class'=> 'button tiny message'))}}</td>					
 					<td>{{$notary->id}}</td>
 					<td>{{$notary->number}}</td>
 					<td>{{$notary->description}}</td>
@@ -55,7 +56,6 @@
 					<td>{{$notary->state}}</td>
 					<td>{{$notary->country}}</td>
 					<td>{{$notary->zip_code}}</td>
-					<td>{{HTML::Link('admin/notary/edit/'.$notary->id, Lang::get('form.edit'), array('class'=> 'button tiny message'))}}</td>
 				</tr>
 				@endforeach
 			</tbody>

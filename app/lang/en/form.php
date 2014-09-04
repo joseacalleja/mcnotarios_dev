@@ -25,7 +25,7 @@ return array(
 	"username" => "Username",
 	"role" => "Role",
 	"actions" => "Actions",
-	"edit" => "Edit",
+	"edit" => "Edit/Modify",
 	"disable" => "Disable",
 	"delete" => "Delete",
 

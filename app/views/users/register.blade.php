@@ -10,22 +10,22 @@
 			@endforeach
 		</div>
 		<div class="username-field">
-			{{ Form::text('username', null , array('required' =>'required', 'placeholder'=> Lang::get('form.username') .'*', 'pattern'=> '[a-zA-Z0-9-_]+')) }}
+			{{ Form::text('username', null , array('required' =>'required', 'placeholder'=> Lang::get('form.username') .'*', 'pattern'=> '[a-zA-Z0-9-_]+' ,'maxlength' => Config::get('constuser.username') )) }}
 			<small class="error">{{Lang::get('form.error--username')}}</small>
 		</div>
 		<div class="firstname-field">
-			{{ Form::text('firstname', null, array('class'=>'', 'placeholder'=>Lang::get('form.firstname').'*', 'required' =>'required')) }}
+			{{ Form::text('firstname', null, array('class'=>'', 'placeholder'=>Lang::get('form.firstname').'*', 'required' =>'required' ,'maxlength' => Config::get('constuser.firstname') )) }}
 			<small class="error">{{Lang::get('form.error--firstname')}}</small>
 		</div>
 		<div class="lastname-field">
-			{{ Form::text('lastname', null, array('class'=>'', 'placeholder'=>Lang::get('form.lastname'))) }}
+			{{ Form::text('lastname', null, array('class'=>'', 'placeholder'=>Lang::get('form.lastname') ,'maxlength' => Config::get('constuser.lastname') )) }}
 		</div>
 		<div class="email-field">
-			{{ Form::email('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.emailaddress').'*', 'required' =>'required')) }}
+			{{ Form::email('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.emailaddress').'*', 'required' =>'required' ,'maxlength' => Config::get('constuser.email') )) }}
 			<small class="error">{{Lang::get('form.error--email')}}</small>
 		</div>
 		<div class="password-field">
-			{{ Form::password('password', array('class'=>'', 'placeholder'=>Lang::get('form.password').'*', 'required' =>'required', 'id'=>'password', 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{8,32}$')) }}
+			{{ Form::password('password', array('class'=>'', 'placeholder'=>Lang::get('form.password').'*', 'required' =>'required', 'id'=>'password', 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{8,32}$' ,'maxlength' => Config::get('constuser.password') )) }}
 			<small class="error">{{Lang::get('form.error--password')}}</small>
 		</div>
 		<div class="password_confirmation-field">

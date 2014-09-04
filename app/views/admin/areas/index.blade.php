@@ -11,6 +11,7 @@
 		<table class="datatable">
 			<thead>
 				<tr>
+					<th>{{Lang::get('form.actions')}}</th>					
  					<th>{{Lang::get('areas.id')}}</th>
  					<th>{{Lang::get('areas.number')}}</th>
  					<th>{{Lang::get('areas.description')}}</th>
@@ -19,12 +20,12 @@
  					<th>{{Lang::get('areas.office_phone')}}</th>
  					<th>{{Lang::get('areas.email')}}</th>
 					<th>{{Lang::get('areas.ubication')}}</th>
-					<th>{{Lang::get('form.edit')}}</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($areas as $area)
 				<tr>
+					<td>{{HTML::Link('admin/area/edit/'.$area->id, Lang::get('form.edit'), array('class'=> 'button tiny message'))}}</td>					
 					<td>{{$area->id}}</td>
 					<td>{{$area->number}}</td>
 					<td>{{$area->description}}</td>
@@ -33,7 +34,6 @@
 					<td>{{$area->office_phone}}</td>
 					<td>{{$area->email}}</td>
 					<td>{{$area->ubication}}</td>
-					<td>{{HTML::Link('admin/area/edit/'.$area->id, Lang::get('form.edit'), array('class'=> 'button tiny message'))}}</td>
 				</tr>
 				@endforeach
 			</tbody>

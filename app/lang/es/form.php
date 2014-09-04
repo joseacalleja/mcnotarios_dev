@@ -25,7 +25,7 @@ return array(
 	"username" => "Usuario",
 	"role" => "Rol",
 	"actions" => "Acciones",
-	"edit" => "Editar",
+	"edit" => "Editar / Modificar",
 	"disable" => "Desactivar",
 	"delete" => "Eliminar",
 	"view" => "Ver",

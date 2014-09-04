@@ -5,7 +5,7 @@
 		{{ Form::open(array('url'=>'user/signin', 'class'=>'form-signin','data-abide'=>'')) }}
 		<h3 class="form-signin-heading">{{Lang::get('form.login')}}</h3>
 	<div class="email-field">
-		{{ Form::text('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.email_or_username'), 'required' =>'required')) }}
+		{{ Form::text('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.email_or_username'), 'required' =>'required' ,'maxlength' => Config::get('constuser.email') )) }}
 		<small class="error">{{Lang::get('form.error--email_or_username')}}</small>
 	</div>
 	<div class="password-field">
