@@ -29,22 +29,22 @@
         <div class="large-7 medium-6 columns ">
              <div class="username-field">
                 {{ Form::label('username', Lang::get('form.username').':') }}
-                {{ Form::text('username', $user->username , array('required' =>'required', 'placeholder'=> Lang::get('form.username'), 'pattern'=> '[a-zA-Z0-9-_]+'  ,'maxlength' => Config::get('constuser.username') )) }}
+                {{ Form::text('username', $user->username , array('required' =>'required', 'placeholder'=> Lang::get('form.username'), 'pattern'=> '[a-zA-Z0-9-_]+'  ,'maxlength' => Config::get('maxlengthuser.username') )) }}
                 <small class="error">{{Lang::get('form.error--username')}}</small>
             </div>
             <div class="email-field">
                 {{ Form::label('email', Lang::get('form.email').':') }}
-                {{ Form::email('email', $user->email , array('required' =>'required', 'placeholder'=> Lang::get('form.emailaddress') ,'maxlength' => Config::get('constuser.email') )) }}
+                {{ Form::email('email', $user->email , array('required' =>'required', 'placeholder'=> Lang::get('form.emailaddress') ,'maxlength' => Config::get('maxlengthuser.email') )) }}
                 <small class="error">{{Lang::get('form.error--email')}}</small>
             </div>
             <div class="firstname-field">
                 {{ Form::label('firstname',  Lang::get('form.firstname').':') }}
-                {{ Form::text('firstname', $user->firstname, array('required' =>'required',  'placeholder'=> Lang::get('form.firstname') ,'maxlength' => Config::get('constuser.firstname') )) }}
+                {{ Form::text('firstname', $user->firstname, array('required' =>'required',  'placeholder'=> Lang::get('form.firstname') ,'maxlength' => Config::get('maxlengthuser.firstname') )) }}
                 <small class="error">{{Lang::get('form.error--firstname')}}</small>
             </div>
             <div class="lastname-field">
                 {{ Form::label('lastname',  Lang::get('form.lastname').':') }}
-                {{ Form::text('lastname', $user->lastname , array( 'placeholder'=>Lang::get('form.lastname') ,'maxlength' => Config::get('constuser.lastname') )) }}
+                {{ Form::text('lastname', $user->lastname , array( 'placeholder'=>Lang::get('form.lastname') ,'maxlength' => Config::get('maxlengthuser.lastname') )) }}
             </div>
             <div class="submit-field">
                 {{ Form::submit(Lang::get('form.change--save'), array('class' => 'button small')) }}
@@ -52,7 +52,7 @@
             <hr />
             {{Lang::get('form.change--yourpassword')}}:<br /><br />
             <div class="password-field">
-                {{ Form::password('password', array('id'=>'password',  'placeholder'=>Lang::get('form.password--new'), 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{8,32}$' ,'maxlength' => Config::get('constuser.password') )) }}
+                {{ Form::password('password', array('id'=>'password',  'placeholder'=>Lang::get('form.password--new'), 'pattern' => '(?=.*\d)(?=.*[a-zA-Z]).{8,32}$' ,'maxlength' => Config::get('maxlengthuser.password') )) }}
                 <small class="error">{{Lang::get('form.error--password')}}</small>
             </div>
             <div class="password_confirmation-field">

@@ -4,7 +4,7 @@
 		<h3 class="form-signin-heading">{{Lang::get('reminders.title--forgot');}}</h3>
 		<p>{{Lang::get('reminders.info--link');}}</p>
 <div class="email-field">
-		{{ Form::email('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.emailaddress'), 'required' =>'required')) }}
+		{{ Form::email('email', null, array('class'=>'', 'placeholder'=>Lang::get('form.emailaddress'), 'required' =>'required' ,'maxlength' => Config::get('maxlengthuser.email') )) }}
 		<small class="error">{{Lang::get('form.error--email')}}</small>
 	</div>
 		{{ Form::submit(Lang::get('reminders.send--link'), array('class'=>'button radius expand'))}}

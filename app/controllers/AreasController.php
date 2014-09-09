@@ -11,6 +11,7 @@ class AreasController extends \BaseController {
 		$this->layout->content = View::make('admin.areas.index', compact('areas'));
 		$this->layout->title = Lang::get('areas.areas--title');
 	}
+	
 	public function getEdit($area_id = null){
 		if (is_null($area_id)){ return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--emptyedit')); }
 		
@@ -36,6 +37,7 @@ class AreasController extends \BaseController {
 
 	public function postEdit($area_id = null){
 		if (is_null($area_id)){ return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--emptyedit')); }
+		/*
 		$input = Input::all();
 		$validation = Validator::make($input, array(
 			'number' => 'required',
@@ -48,6 +50,16 @@ class AreasController extends \BaseController {
 
 		));
 		if ($validation->passes()){
+			*/
+		/*
+		* lets try .. the new one that its place on app/services/validators/Validator.php
+		* to poot the $rules in only one place
+		*/
+		$validation = New AreaValidator(Input::all());
+		if ($validation->fails())
+		{
+			return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--edit'));
+		}
 		$area = Area::find($area_id);
 		$area->number = Input::get('number');
 		$area->description = Input::get('description');
@@ -62,8 +74,6 @@ class AreasController extends \BaseController {
 		$user = User::find($area->responsible);
 		$area->areaUsers()->save($user);
 		return Redirect::to('admin/area')->withSuccess(Lang::get('areas.success--edit'));
-		}
-		return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--edit'));
 	}
 
 	public function getNew(){
@@ -75,6 +85,7 @@ class AreasController extends \BaseController {
 		$this->layout->content=View::make('admin.areas.new')->withUserlist($userlist);
 	}
 	public function postNew(){
+		/*
 		$input = Input::all();
 		$validation = Validator::make($input, array(
 			'number' => 'required',
@@ -86,7 +97,16 @@ class AreasController extends \BaseController {
 			'ubication' => 'required'
 
 		));
-		if ($validation->passes()){
+		*/
+		/*
+		* lets try .. the new one that its place on app/services/validators/Validator.php
+		* to poot the $rules in only one place
+		*/
+		$validation = New AreaValidator(Input::all());
+		if ($validation->fails())
+		{
+			return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--add'));
+		}
 		$area = new Area;
 		$area->number = Input::get('number');
 		$area->description = Input::get('description');
@@ -97,8 +117,6 @@ class AreasController extends \BaseController {
 		$area->ubication = Input::get('ubication');
 		$area->save();
 		return Redirect::to('admin/area')->withSuccess(Lang::get('areas.success--add'));
-		}
-		return Redirect::to('admin/area')->withAlert(Lang::get('areas.error--add'));
 	}
 }
 

@@ -1,5 +1,13 @@
 <?php
 
+	/*
+	*
+	* lets include the use of ubication of validator as a service
+	*
+	*
+use App\Services\Validators\NotaryValidator;
+	*/
+
 class NotariesController extends \BaseController {
 
 	protected $layout = "layouts.main";
@@ -11,6 +19,7 @@ class NotariesController extends \BaseController {
 		$this->layout->content = View::make('admin.notaries.index', compact('notaries'));
 		$this->layout->title = Lang::get('notaries.notaries--title');
 	}
+	
 	public function getEdit($notary_id = null){
 		if (is_null($notary_id)){ return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--emptyedit')); }
 		
@@ -36,6 +45,7 @@ class NotariesController extends \BaseController {
 
 	public function postEdit($notary_id = null){
 		if (is_null($notary_id)){ return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--emptyedit')); }
+		/*
 		$input = Input::all();
 		$validation = Validator::make($input, array(
 			'number' => 'required',
@@ -60,7 +70,18 @@ class NotariesController extends \BaseController {
 			'zip_code' => 'required'
 
 		));
-		if ($validation->passes()){
+		*/
+		/*
+		*
+		* lets try .. the new one that its place on app/services/validators/Validator.php
+		*
+		*/
+		$validation = New NotaryValidator(Input::all());
+//		if ($validation->passes()){
+		if ($validation->fails())
+		{
+			return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--edit'));
+		}			
 		$notary = Notary::find($notary_id);
 		$notary->number = Input::get('number');
 		$notary->description = Input::get('description');
@@ -88,8 +109,6 @@ class NotariesController extends \BaseController {
 		$user = User::find($notary->responsible);
 		$notary->notaryUsers()->save($user);
 		return Redirect::to('admin/notary')->withSuccess(Lang::get('notaries.success--edit'));
-		}
-		return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--edit'));
 	}
 
 	public function getNew(){
@@ -101,6 +120,7 @@ class NotariesController extends \BaseController {
 		$this->layout->content=View::make('admin.notaries.new')->withUserlist($userlist);
 	}
 	public function postNew(){
+		/*		
 		$input = Input::all();
 		$validation = Validator::make($input, array(
 			'number' => 'required',
@@ -125,7 +145,16 @@ class NotariesController extends \BaseController {
 			'zip_code' => 'required'
 
 		));
-		if ($validation->passes()){
+		*/
+		/*
+		* lets try .. the new one that its place on app/services/validators/Validator.php
+		*/
+		$validation = New NotaryValidator(Input::all());
+		if ($validation->fails())
+		{
+			return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--add'));
+		}
+
 		$notary = new Notary;
 		$notary->number = Input::get('number');
 		$notary->description = Input::get('description');
@@ -149,8 +178,6 @@ class NotariesController extends \BaseController {
 		$notary->zip_code = Input::get('zip_code');
 		$notary->save();
 		return Redirect::to('admin/notary')->withSuccess(Lang::get('notaries.success--add'));
-		}
-		return Redirect::to('admin/notary')->withAlert(Lang::get('notaries.error--add'));
 	}
 }
 

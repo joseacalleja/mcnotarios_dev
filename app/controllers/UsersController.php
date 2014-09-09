@@ -100,6 +100,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	
 	public function getEdit() {
 		$id = Auth::user()->id;
 		$user = User::find($id);

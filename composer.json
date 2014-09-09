@@ -15,6 +15,7 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
+			"app/services/validators",
 			"app/tests/TestCase.php",
 			"app/composers.php"
 		]
